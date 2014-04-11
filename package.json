@@ -1,0 +1,16 @@
+{
+  "name": "node-opcua-sampleserver",
+  "version": "0.0.10",
+  "description": "Simple OPCUA Server made with node-opcua",
+  "main": "server.js",
+  "dependencies": {
+    "node-opcua": "~0.0.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Etienne Rossignon <etienne.rossignon@gadz.org>",
+  "license": "MIT"
+}
