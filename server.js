@@ -42,6 +42,7 @@ function construct_my_address_space(server) {
         {
             nodeId: "ns=4;b=1020ffaa", // some opaque NodeId in namespace 4
             browseName: "MyVariable1",
+	    dataType: "Double",
             value: {
                 get: function () {
                     var t = new Date() / 10000.0;
@@ -56,6 +57,7 @@ function construct_my_address_space(server) {
     server.nodeVariable2 = server.engine.addVariableInFolder("MyDevice",
         {
             browseName: "MyVariable2",
+	    dataType: "Double",
             value: {
                 get: function () {
                     return new opcua.Variant({dataType: opcua.DataType.Double, value: variable2 });
@@ -74,6 +76,7 @@ function construct_my_address_space(server) {
         {
             nodeId: "ns=4;b=1020ffab", // some opaque NodeId in namespace 4
             browseName: "MyVariable3",
+	    dataType: "Double",
             value: {
                 get: function () {
                     // var value = process.memoryUsage().heapUsed / 1000000;
