@@ -2,20 +2,17 @@ var opcua = require("node-opcua");
 var os = require("os");
 
 
-var default_xmlFile = __dirname + "/node_modules/node-opcua/nodesets/Opc.Ua.NodeSet2.xml";
-console.log(" node set ", default_xmlFile);
-
 
 // Let create an instance of OPCUAServer
 var server = new opcua.OPCUAServer({
     port: 1234,        // the port of the listening socket of the server
-    nodeset_filename: default_xmlFile
+    nodeset_filename: opcua.standard_nodeset_file
 });
 
 // we can set the buildInfo
 server.buildInfo.productName = "MySampleServer1";
 server.buildInfo.buildNumber = "7658";
-server.buildInfo.buildDate = new Date(2014, 5, 2);
+server.buildInfo.buildDate = new Date(2015, 12, 25);
 
 
 // the server needs to be initialized first. During initialisation,
@@ -31,7 +28,6 @@ server.initialize(function () {
     server.start(function () {
         console.log("Server is now listening ... ( press CTRL+C to stop)");
         var endpointUrl = server.endpoints[0].endpointDescriptions()[0].endpointUrl;
-
         server.endpoints[0].endpointDescriptions().forEach(function (endpoint) {
             console.log(endpoint.endpointUrl, endpoint.securityMode.toString(), endpoint.securityPolicyUri.toString());
         });
@@ -41,14 +37,19 @@ server.initialize(function () {
 
 
 function construct_my_address_space(server) {
+
+    var addressSpace = server.engine.addressSpace;
+
     // we create a new folder under RootFolder
-    server.engine.createFolder("RootFolder", {browseName: "MyDevice"});
+    var myDevice = addressSpace.addFolder("ObjectsFolder", {browseName: "MyDevice"});
 
     // now let's add first variable in folder
     // the addVariableInFolder
     var variable1 = 10.0;
 
-    server.nodeVariable1 = server.engine.addVariableInFolder("MyDevice", {
+
+    server.nodeVariable1 = addressSpace.addVariable({
+        componentOf: myDevice,
         nodeId: "ns=4;b=1020ffaa", // some opaque NodeId in namespace 4
         browseName: "MyVariable1",
         dataType: "Double",
@@ -64,7 +65,8 @@ function construct_my_address_space(server) {
     ///
     var variable2 = 10.0;
 
-    server.nodeVariable2 = server.engine.addVariableInFolder("MyDevice", {
+    server.nodeVariable2 = addressSpace.addVariable({
+        componentOf: myDevice,
         browseName: "MyVariable2",
         dataType: "Double",
         value: {
@@ -79,10 +81,12 @@ function construct_my_address_space(server) {
     });
 
 
-    server.nodeVariable3 = server.engine.addVariableInFolder("MyDevice", {
+    server.nodeVariable3 = addressSpace.addVariable({
+        componentOf: myDevice,
         nodeId: "ns=4;b=1020ffab", // some opaque NodeId in namespace 4
         browseName: "Percentage Memory Used",
         dataType: "Double",
+        minimumSamplingInterval: 1000,
         value: {
             get: function () {
                 // var value = process.memoryUsage().heapUsed / 1000000;
