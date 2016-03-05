@@ -2,7 +2,6 @@ var opcua = require("node-opcua");
 var os = require("os");
 
 
-
 // Let create an instance of OPCUAServer
 var server = new opcua.OPCUAServer({
     port: 1234,        // the port of the listening socket of the server
@@ -26,7 +25,7 @@ server.initialize(function () {
 
     // we can now start the server
     server.start(function () {
-        console.log("Server is now listening ... ( press CTRL+C to stop)");
+        console.log("Server is now listening ... ( press CTRL+C to stop) ");
         var endpointUrl = server.endpoints[0].endpointDescriptions()[0].endpointUrl;
         server.endpoints[0].endpointDescriptions().forEach(function (endpoint) {
             console.log(endpoint.endpointUrl, endpoint.securityMode.toString(), endpoint.securityPolicyUri.toString());
@@ -50,8 +49,8 @@ function construct_my_address_space(server) {
 
     server.nodeVariable1 = addressSpace.addVariable({
         componentOf: myDevice,
-        nodeId: "ns=4;b=1020ffaa", // some opaque NodeId in namespace 4
-        browseName: "MyVariable1",
+        nodeId: "ns=2;s=Temperature",
+        browseName: "Temperature",
         dataType: "Double",
         value: {
             get: function () {
