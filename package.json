@@ -1,6 +1,6 @@
 {
   "name": "node-opcua-sampleserver",
-  "version": "0.0.37",
+  "version": "0.0.52",
   "description": "Simple OPCUA Server made with node-opcua",
   "main": "server.js",
   "dependencies": {
