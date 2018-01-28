@@ -4,7 +4,7 @@ var os = require("os");
 
 // Let create an instance of OPCUAServer
 var server = new opcua.OPCUAServer({
-    port: 1234,        // the port of the listening socket of the server
+    port: 26543,        // the port of the listening socket of the server
     nodeset_filename: opcua.standard_nodeset_file
 });
 
