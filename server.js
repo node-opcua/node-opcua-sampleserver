@@ -100,7 +100,7 @@ function constructAddressSpace(server) {
                 nodesets.standard,
                 nodesets.di
             ],
-            buidIfo: {
+            buildInfo: {
                 productName: "Sample NodeOPCUA Server1",
 
                 buildNumber: "7658",
