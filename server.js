@@ -41,6 +41,7 @@ function constructAddressSpace(server) {
             }
         }
     });
+    
 
     const nodeVariable2 = namespace.addVariable({
         componentOf: myDevice,
