@@ -1,15 +1,23 @@
 {
   "name": "node-opcua-sampleserver",
-  "version": "0.0.56",
+  "version": "2.121.0",
   "description": "Simple OPCUA Server made with node-opcua",
   "main": "server.js",
   "dependencies": {
-    "node-opcua": "~2.75.0"
+    "node-opcua": "~2.121.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "source-map-support": "^0.5.21"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.mjs",
+    "lint": "npx eslint ."
   },
   "author": "Etienne Rossignon <etienne.rossignon@gadz.org>",
   "license": "MIT",
