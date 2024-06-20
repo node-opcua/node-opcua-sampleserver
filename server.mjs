@@ -47,7 +47,7 @@ function constructAddressSpace (addressSpace) {
   });
   uaVariable2.setValueFromSource({
     dataType: DataType.String,
-    value: 'Learn Node-OPCUA ! Read https://leanpub.com/node-opcuabyexample'
+    value: 'Learn Node-OPCUA ! Read https://leanpub.com/node-opcuabyexample-edition2024'
   });
 
   const uaVariable3 = namespace.addVariable({
