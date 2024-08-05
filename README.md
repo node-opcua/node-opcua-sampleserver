@@ -1,5 +1,4 @@
 # node-opcua-sampleserver
-=======================
 
 A simple OPC-UA server based on [node-opcua](https://github.com/node-opcua/node-opcua).
 
