@@ -112,6 +112,8 @@ function constructAddressSpace (addressSpace) {
     await server.start();
 
     console.log('Server is now listening ... ( press CTRL+C to stop) ');
+
+    
     server.endpoints[0].endpointDescriptions().forEach((endpoint) => {
       console.log(endpoint.endpointUrl, MessageSecurityMode[endpoint.securityMode], endpoint.securityPolicyUri.toString().padEnd(60));
       console.log("    ", endpoint.userIdentityTokens.map((x) => x.policyId.toString()).join(' '));
