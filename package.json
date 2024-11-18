@@ -4,16 +4,16 @@
   "description": "Simple OPCUA Server made with node-opcua",
   "main": "server.js",
   "dependencies": {
-    "node-opcua": "~2.130.0"
+    "node-opcua": "^2.136.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
-    "eslint": "^9.8.0",
-    "globals": "^15.9.0",
+    "eslint": "^9.15.0",
+    "globals": "^15.12.0",
     "source-map-support": "^0.5.21"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch server.mjs",
     "start": "node server.mjs",
     "lint": "npx eslint ."
   },
