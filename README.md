@@ -7,28 +7,31 @@ A simple OPC-UA server based on [node-opcua](https://github.com/node-opcua/node-
 Clone the project from GitHub repository:
 
 ```bash
-  git clone https://github.com/node-opcua/node-opcua-sampleserver
+git clone https://github.com/node-opcua/node-opcua-sampleserver
 ```
 
 Navigate to the project directory:
 
 ```bash
-  cd node-opcua-sampleserver
+cd node-opcua-sampleserver
 ```
 
 Install dependencies
 
 ```bash
-  npm install
+npm install
 ```
+
 Run server with auto-reload functionality for development
+
 ```bash
 npm run dev
 ```
 
-## Production mode:
+### Production mode:
 
 Start server in production environment
+
 ```bash
 npm run start
 ```
