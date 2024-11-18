@@ -13,7 +13,7 @@
     "source-map-support": "^0.5.21"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch server.mjs",
     "start": "node server.mjs",
     "lint": "npx eslint ."
   },
